@@ -1,0 +1,32 @@
+---
+import SquareImage from "./SquareImage.astro";
+---
+
+<section id="services-section" class="w-full pt-10 flex flex-col items-center justify-center container mx-auto">
+  <h1 class="text-2xl font-jakarta p-3 tracking-[4.4px]">¡Nuestros Servicios!</h1>
+  <div class="w-[75%] h-[1px] bg-black mt-1"></div>
+  <div class="mt-5 flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-5 lg:gap-10">
+    <SquareImage src="/matrimonio.webp" alt="salon" texto="Matrimonios" className="opacity-0 transition-opacity duration-1000" />
+    <SquareImage src="/graduacion.webp" alt="graduaciones" texto="Graduaciones" className="opacity-0 transition-opacity duration-1000" />
+    <SquareImage src="/otros.webp" alt="Otros eventos" texto="Otros Eventos" className="opacity-0 transition-opacity duration-1000" />
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('opacity-100');
+          entry.target.classList.remove('opacity-0');
+        } else {
+          entry.target.classList.remove('opacity-100');
+          entry.target.classList.add('opacity-0');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    const elements = document.querySelectorAll('#services-section .opacity-0');
+    elements.forEach(element => observer.observe(element));
+  });
+</script>

@@ -1,0 +1,91 @@
+---
+const slides = [
+  {
+    image: "/banner1.webp",
+    content: "",
+    zoomEffect: "in", // Puede ser 'in' o 'out'
+  },
+  {
+    image: "/banner2.webp",
+    content: "",
+    zoomEffect: "out",
+  },
+  {
+    image: "/banner3.webp",
+    content: "",
+    zoomEffect: "out",
+  },
+];
+---
+
+<section id="inicio-section" class="relative w-full h-screen overflow-hidden">
+  <!-- Pasamos los datos como un atributo data-slides -->
+  <div
+    id="slider"
+    class="relative w-full h-full"
+    data-slides={`[${slides.map(
+      (slide) =>
+        `{"image":"${slide.image}","content":"${slide.content}","zoomEffect":"${slide.zoomEffect}"}`
+    )}]`}
+  >
+    <!-- Slide actual -->
+    <div
+      id="slide"
+      class="absolute inset-0 w-full h-full bg-cover bg-center transition-all duration-700 ease-in-out scale-100"
+      style={`background-image: url('${slides[0].image}')`}
+    >
+      <div
+        class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-white p-4"
+      >
+        <div id="slide-content"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const sliderElement = document.getElementById("slider");
+      const slides =
+        sliderElement && sliderElement.dataset.slides
+          ? JSON.parse(sliderElement.dataset.slides)
+          : [];
+      let currentIndex = 0;
+  
+      function changeSlide() {
+        const slide = document.getElementById("slide");
+        const content = document.getElementById("slide-content");
+  
+        // Precargar la próxima imagen
+        const nextIndex = (currentIndex + 1) % slides.length;
+        const img = new window.Image(); // Aseguramos que el objeto Image esté definido en el navegador
+        img.src = slides[nextIndex].image;
+  
+        // Usamos requestAnimationFrame para asegurar que las actualizaciones se realicen en el próximo ciclo de renderizado
+        requestAnimationFrame(() => {
+          currentIndex = nextIndex;
+  
+          // Actualizamos la imagen y el contenido
+          if (slide) {
+            slide.style.backgroundImage = `url('${slides[currentIndex].image}')`;
+            if (content) {
+              content.innerHTML = slides[currentIndex].content;
+            }
+          }
+  
+          // Aplicamos el efecto de zoom con clases de Tailwind
+          if (slide) {
+            if (slides[currentIndex].zoomEffect === "in") {
+              slide.classList.remove("scale-110");
+              slide.classList.add("scale-100");
+            } else {
+              slide.classList.remove("scale-100");
+              slide.classList.add("scale-110");
+            }
+          }
+        });
+      }
+  
+      setInterval(changeSlide, 5000); // Cambia cada 5 segundos
+    });
+  </script>

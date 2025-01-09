@@ -1,0 +1,123 @@
+---
+import Instagram from "./Instagram.astro";
+---
+
+<header
+  id="main-header"
+  class="w-full fixed py-4 px-8 border-b-1 border-stone-800 bg-header z-50"
+>
+  <div class="max-w-[1440px] mx-auto flex justify-between items-center">
+    <img src="/logo.webp" alt="logo" class="w-auto h-[70px]" />
+    <!-- Botón de menú para móviles -->
+    <button
+      id="menu-button"
+      class="lg:hidden text-accent focus:outline-none"
+      aria-label="Toggle menu"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-8 w-8"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16m-7 6h7"></path>
+      </svg>
+    </button>
+    <!-- Menú -->
+    <nav
+      id="menu"
+      class="absolute hidden bg-header lg:bg-transparent top-20 right-0 shadow-lg text-center transition-transform duration-300 ease-in-out transform translate-x-full lg:static lg:shadow-none lg:transform-none lg:flex"
+    >
+      <ul
+        class="flex flex-col items-center justify-center py-6 lg:flex-row space-y-4 lg:space-y-0 lg:space-x-8 text-white px-8 lg:px-0"
+      >
+        <li
+          class="border-b-2 border-b-transparent hover:border-b-primary transition-all duration-300"
+        >
+          <a href="#inicio-section">INICIO</a>
+        </li>
+        <li
+        class="border-b-2 border-b-transparent hover:border-b-primary transition-all duration-300"
+      >
+        <a href="#nosotros-section">NOSOTROS</a>
+      </li>
+        <li
+          class="border-b-2 border-b-transparent hover:border-b-primary transition-all duration-300"
+        >
+          <a href="#services-section">SERVICIOS</a>
+        </li>
+
+        <li
+          class="border-b-2 border-b-transparent hover:border-b-primary transition-all duration-300"
+        >
+          <a href="#ubicacion-section">UBICACIÓN</a>
+        </li>
+        <li
+          class="border-b-2 border-b-transparent hover:border-b-primary transition-all duration-300"
+        >
+          <a href="#imagenes-section"> GALERÍA </a>
+        </li>
+       
+        <li class="w-auto h-auto text-white hidden lg:block">
+          <a
+            href="https://www.instagram.com/centrodeeventoslesbourgeois/?hl=es-la"
+            target="_blank"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              x="0px"
+              y="0px"
+              width="30"
+              height="30"
+              viewBox="0 0 50 50"
+              class="fill-current"
+            >
+              <path
+                d="M 16 3 C 8.8324839 3 3 8.8324839 3 16 L 3 34 C 3 41.167516 8.8324839 47 16 47 L 34 47 C 41.167516 47 47 41.167516 47 34 L 47 16 C 47 8.8324839 41.167516 3 34 3 L 16 3 z M 16 5 L 34 5 C 40.086484 5 45 9.9135161 45 16 L 45 34 C 45 40.086484 40.086484 45 34 45 L 16 45 C 9.9135161 45 5 40.086484 5 34 L 5 16 C 5 9.9135161 9.9135161 5 16 5 z M 37 11 A 2 2 0 0 0 35 13 A 2 2 0 0 0 37 15 A 2 2 0 0 0 39 13 A 2 2 0 0 0 37 11 z M 25 14 C 18.936712 14 14 18.936712 14 25 C 14 31.063288 18.936712 36 25 36 C 31.063288 36 36 31.063288 36 25 C 36 18.936712 31.063288 14 25 14 z M 25 16 C 29.982407 16 34 20.017593 34 25 C 34 29.982407 29.982407 34 25 34 C 20.017593 34 16 29.982407 16 25 C 16 20.017593 20.017593 16 25 16 z"
+              ></path>
+            </svg></a
+          >
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script is:inline>
+  // Selección de elementos\
+  document.addEventListener("DOMContentLoaded", () => {
+    $(document).on("click", 'a[href^="#"]', function (event) {
+      event.preventDefault();
+
+      // Realiza el scroll suave hacia el destino
+      $("html, body").animate(
+        {
+          scrollTop: $($.attr(this, "href")).offset().top,
+        },
+        1000 // Duración en milisegundos
+      );
+    });
+
+    const menuButton = document.getElementById("menu-button");
+    const menu = document.getElementById("menu");
+
+    // Alternar el menú
+    if (menuButton) {
+      menuButton.addEventListener("click", () => {
+        if (menu && menu.classList.contains("translate-x-full")) {
+          menu.classList.remove("translate-x-full");
+          menu.classList.remove("hidden");
+          menu.classList.add("translate-x-0");
+        } else if (menu) {
+          menu.classList.remove("translate-x-0");
+          menu.classList.add("translate-x-full");
+          menu.classList.add("hidden");
+        }
+      });
+    }
+  });
+</script>
