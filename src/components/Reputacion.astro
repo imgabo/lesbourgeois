@@ -1,30 +1,76 @@
 ---
-// Reputacion.astro
+import Swiper from 'swiper';
+
+
 const reviews = [
   { id: 1, text: "100% recomendable. Desde un principio nos gustó el lugar y todo el equipo (Charly, Ronald y Denissee) nos transmitieron tranquilidad y confianza de que todo saldría bien, y eso fue superado con creces. Estamos muy felices de todo el trabajo y que nuestros invitados hayan quedado fascinados por todo el matrimonio y atención.", author: "Natalie F.", stars: 5, photo: "https://cdn0.matrimonios.cl/user/3601/1_1/160/jpg/gu_1561063.jpeg?r=37853" },
   { id: 2, text: "Recomendamos este centro de eventos, porque ofrecen el servicio completo, de lugar, banquetera, decoración. Además tiene una lista de proveedores como fotógrafo, animador y DJ de excelente calidad, todos muy profesionales. Nosotros somos de la región de Atacama, pero organizar nuestro matrimonio en Quintero no fue para nada un dolor de cabeza. El día de nuestro matrimonio, estaba todo coordinado y tal como lo habíamos pedido. Ofrecen una hermosa pérgola para la ceremonia, que hace de ese momento el más bello de la velada. Los garzones amables y muy ordenados, la comida de muy buena calidad.", author: "Luis A", stars: 5, photo: "https://cdn0.matrimonios.cl/user/0087/1_1/160/jpg/gu_1507800.webp?r=14980" },
   { id: 3, text: "Creo que nunca me había sentido tan relajada y segura, sin embargo, es así como me hicieron sentir en Les Bourgeois Toda mi boda salió como esperaba y mejor, todo detalle fue suplido, realmente fue un día inolvidable por lo hermoso y perfecto que resultó. Nunca olvidaré su servicio ya que hicieron que este día tan importante fuera aún más especial, nuestros invitados no dejaron de decir que el lugar era hermoso y el servicio impecable. Un día que no solo quedará en muestra memoria sino que también en nuestros corazones, sigan con esa entrega, cercanía y excelencia que los hace únicos. Muchas gracias. Jairo y Génesis", author: "Genesis", stars: 5, photo: "https://cdn0.matrimonios.cl/user/7710/1_1/160/jpg/gu_910177.webp?r=44084" },
+  { id: 4, text: "Después de muchos problemas eligiendo el lugar, dimos con este centro de eventos y desde un comienzo Denisse y Ronald fueron muy empáticos con nuestra situación, siempre aclarando dudas, estando disponible a cualquier hora, abierto a nuestras consultas y sugerencias y apoyándonos en todo momento en el camino de planificación de la boda. El evento salió a la perfección, nos dieron un día redondo, tienen un sistema en que todo está incluído, animación , decoración, planificación, dj, banqueteria, lo que sirvió mucho por qué era un equipo que se conocía y sabía ofrecer un producto de alto nivel. Además de esto , no tuvieron problemas en adecuarse a nuestras ideas e implementar las distintas actividades que teníamos planeado para nuestro día. Pd cuentan con una pérgola preciosa para celebrar matrimonios.", author: "Camila P.", stars: 5, photo: "https://cdn0.matrimonios.cl/user/6159/1_1/80/jpg/gu_1729516.webp?r=66969" },
   // Agrega más reviews según sea necesario
 ];
 ---
 
-<section class="bg-gray-100 p-6 font-jakarta min-h-[600px flex flex-col items-center">
+<section class="bg-gray-100 overflow-x-hidden p-6 font-jakarta h-auto min-h-[600px] flex flex-col items-center">
   <h2 class="text-2xl font-jakarta p-3 tracking-[4.4px] mb-1 text-center">Reseñas de Nuestros Servicios</h2>
   <div class="w-[75%] h-[1px] bg-black mb-5"></div>
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-    {reviews.map(review => (
-      <div class="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center justify-between">
-        <img src={review.photo} alt={review.author} class="w-16 h-16 rounded-full mx-auto mb-4" />
-        <h3 class="text-xl font-bold text-center">{review.author}</h3>
-        <p class="text-justify text-gray-600 mb-4">{review.text}</p>
-        <div class="flex justify-center">
-          {Array.from({ length: review.stars }).map((_, index) => (
-            <svg  class="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.97a1 1 0 00.95.69h4.18c.969 0 1.371 1.24.588 1.81l-3.392 2.46a1 1 0 00-.364 1.118l1.286 3.97c.3.921-.755 1.688-1.54 1.118l-3.392-2.46a1 1 0 00-1.176 0l-3.392 2.46c-.784.57-1.838-.197-1.54-1.118l1.286-3.97a1 1 0 00-.364-1.118L2.049 9.397c-.783-.57-.38-1.81.588-1.81h4.18a1 1 0 00.95-.69l1.286-3.97z" />
-            </svg>
-          ))}
+  <div class="swiper-container w-full">
+    <div class="swiper-wrapper">
+      {reviews.map(review => (
+        <div class="swiper-slide" >
+          <div class="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center justify-between min-h-[700px] md:min-h-[450px] h-auto">
+            <img src={review.photo} alt={review.author} class="w-16 h-16 rounded-full mx-auto mb-4" />
+            <h3 class="text-xl font-bold text-center">{review.author}</h3>
+            <p class="text-justify text-gray-600 mb-4">{review.text}</p>
+            <div class="flex justify-center">
+              {Array.from({ length: review.stars }).map((_, index) => (
+                <svg  class="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.97a1 1 0 00.95.69h4.18c.969 0 1.371 1.24.588 1.81l-3.392 2.46a1 1 0 00-.364 1.118l1.286 3.97c.3.921-.755 1.688-1.54 1.118l-3.392-2.46a1 1 0 00-1.176 0l-3.392 2.46c-.784.57-1.838-.197-1.54-1.118l1.286-3.97a1 1 0 00-.364-1.118L2.049 9.397c-.783-.57-.38-1.81.588-1.81h4.18a1 1 0 00.95-.69l1.286-3.97z" />
+                </svg>
+              ))}
+            </div>
+          </div>
         </div>
-      </div>
-    ))}
+      ))}
+    </div>
+
   </div>
 </section>
+
+
+<script>
+  import 'swiper/css';
+  // Módulo Navigation de Swiper y estilos
+  import { Navigation, Pagination } from "swiper/modules";
+  import "swiper/css/navigation";
+  import Swiper from 'swiper/bundle';
+  import 'swiper/css/bundle';
+
+  const swiper = new Swiper('.swiper-container', {
+    modules: [Navigation, Pagination],
+    slidesPerView: 3,
+    loop: true,
+    autoplay: {
+      delay: 5000,
+    },
+    spaceBetween: 30,
+    breakpoints: {
+      500:{
+        slidesPerView: 1,
+        spaceBetween: 20,
+      },
+      640: {
+        slidesPerView: 1,
+        spaceBetween: 20,
+      },
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 30,
+      },
+      1024: {
+        slidesPerView: 3,
+        spaceBetween: 30,
+      },
+    }
+  });
+</script>

@@ -1,6 +1,4 @@
 ---
-import FlechaDerecha from "./FlechaDerecha.astro";
-import FlechaIzquierda from "./FlechaIzquierda.astro";
 import Whatsapp from "./Whatsapp.astro";
 ---
 
@@ -8,21 +6,6 @@ import Whatsapp from "./Whatsapp.astro";
   id="contacto-section"
   class="w-full h-auto hidden bg-bg-secondary lg:flex flex-col items-center justify-center"
 >
-  <div class="flex flex-row justify-around w-full">
-    <div
-      id="flecha-container-izquierda"
-      class="w-full lg:h-[250px] xl:h-[400px]  text-white ml-[120px]"
-    >
-      <FlechaIzquierda />
-    </div>
-    <div
-      id="flecha-container"
-      class="w-full lg:h-[250px] xl:h-[400px] p-0 flex justify-end items-start text-white mr-[120px]"
-    >
-      <FlechaDerecha />
-    </div>
-
-  </div>
   <div id="ws-container" class="opacity-0 transition-opacity duration-1000">
     <Whatsapp />
   </div>
@@ -30,21 +13,15 @@ import Whatsapp from "./Whatsapp.astro";
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const flechaContainer = document.getElementById("flecha-container");
-    const flechaContainerIzquierda = document.getElementById("flecha-container-izquierda");
     const wsContainer = document.getElementById("ws-container");
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            flechaContainer?.classList.add("animate-slideRight");
-            flechaContainerIzquierda?.classList.add("animate-slideIn");
             wsContainer?.classList.add("opacity-100");
             wsContainer?.classList.remove("opacity-0");
           } else {
-            flechaContainer?.classList.remove("animate-slideRight");
-            flechaContainerIzquierda?.classList.remove("animate-slideIn");
             wsContainer?.classList.remove("opacity-100");
             wsContainer?.classList.add("opacity-0");
           }
