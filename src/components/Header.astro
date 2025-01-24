@@ -52,17 +52,41 @@ import Instagram from "./Instagram.astro";
           <a href="#services-section">SERVICIOS</a>
         </li>
 
-        <li
+        <!-- <li
           class="border-b-2 border-b-transparent hover:border-b-primary transition-all duration-300"
         >
           <a href="#ubicacion-section">UBICACIÓN</a>
-        </li>
+        </li> -->
         <li
           class="border-b-2 border-b-transparent hover:border-b-primary transition-all duration-300"
         >
           <a href="#imagenes-section"> GALERÍA </a>
         </li>
-
+        <li
+        class="border-b-2 border-b-transparent hover:border-b-primary transition-all duration-300"
+      >
+        <a href="#contacto-section"> CONTACTO </a>
+      </li>
+ 
+        <li class="w-auto h-auto text-white hidden lg:block">
+          <a
+            href="https://api.whatsapp.com/send?phone=+56932365287&text=Quiero%20informaci%C3%B3n%20de%20su%20centro%20de%20eventos"
+            target="_blank"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              x="0px"
+              y="0px"
+              width="30"
+              height="30"
+              viewBox="0 0 50 50"
+              class="fill-current"
+            >
+              <path
+                d="M25,2.5C12.3,2.5,2.5,12.3,2.5,25c0,4.4,1.1,8.5,3.1,12.1L2.5,47.5l10.8-3.1c3.5,2,7.6,3.1,11.7,3.1c12.7,0,22.5-9.8,22.5-22.5S37.7,2.5,25,2.5z M25,42.5c-3.8,0-7.4-1-10.5-2.9l-0.7-0.4l-6.4,1.8l1.8-6.4l-0.4-0.7c-1.9-3.1-2.9-6.7-2.9-10.5c0-10.9,8.9-19.8,19.8-19.8S44.8,14.1,44.8,25S35.9,42.5,25,42.5z M36.6,30.9c-0.6-0.3-3.5-1.7-4-1.9c-0.5-0.2-0.9-0.3-1.3,0.3c-0.4,0.6-1.5,1.9-1.8,2.3c-0.3,0.4-0.7,0.4-1.3,0.1c-0.6-0.3-2.5-0.9-4.8-3c-1.8-1.6-3-3.5-3.4-4.1c-0.3-0.6-0.1-0.9,0.2-1.2c0.2-0.2,0.6-0.7,0.9-1.1c0.3-0.4,0.4-0.6,0.6-1c0.2-0.4,0.1-0.7-0.1-1c-0.3-0.6-1.3-3.2-1.8-4.4c-0.5-1.2-0.9-1-1.3-1c-0.3,0-0.7,0-1.1,0c-0.4,0-1,0.1-1.5,0.7c-0.5,0.6-2,1.9-2,4.6c0,2.7,2,5.3,2.3,5.7c0.3,0.4,3.9,6,9.4,8.4c1.3,0.6,2.3,0.9,3.1,1.2c1.3,0.4,2.5,0.3,3.4,0.2c1-0.1,3.5-1.4,4-2.8c0.5-1.4,0.5-2.6,0.4-2.8C37.5,31.2,37.2,31,36.6,30.9z"
+              ></path>
+            </svg></a
+          >
+        </li>
         <li class="w-auto h-auto text-white hidden lg:block">
           <a
             href="https://www.instagram.com/centrodeeventoslesbourgeois/?hl=es-la"
@@ -84,20 +108,10 @@ import Instagram from "./Instagram.astro";
         </li>
         <li class="w-auto h-auto text-white hidden lg:block">
           <a
-            href="https://api.whatsapp.com/send?phone=+56932365287&text=Quiero%20informaci%C3%B3n%20de%20su%20centro%20de%20eventos"
+            href="https://maps.app.goo.gl/j5hCkHjNRDWpqyzi8"
             target="_blank"
-            ><svg
-              xmlns="http://www.w3.org/2000/svg"
-              x="0px"
-              y="0px"
-              width="30"
-              height="30"
-              viewBox="0 0 50 50"
-              class="fill-current"
-            >
-              <path
-                d="M25,2.5C12.3,2.5,2.5,12.3,2.5,25c0,4.4,1.1,8.5,3.1,12.1L2.5,47.5l10.8-3.1c3.5,2,7.6,3.1,11.7,3.1c12.7,0,22.5-9.8,22.5-22.5S37.7,2.5,25,2.5z M25,42.5c-3.8,0-7.4-1-10.5-2.9l-0.7-0.4l-6.4,1.8l1.8-6.4l-0.4-0.7c-1.9-3.1-2.9-6.7-2.9-10.5c0-10.9,8.9-19.8,19.8-19.8S44.8,14.1,44.8,25S35.9,42.5,25,42.5z M36.6,30.9c-0.6-0.3-3.5-1.7-4-1.9c-0.5-0.2-0.9-0.3-1.3,0.3c-0.4,0.6-1.5,1.9-1.8,2.3c-0.3,0.4-0.7,0.4-1.3,0.1c-0.6-0.3-2.5-0.9-4.8-3c-1.8-1.6-3-3.5-3.4-4.1c-0.3-0.6-0.1-0.9,0.2-1.2c0.2-0.2,0.6-0.7,0.9-1.1c0.3-0.4,0.4-0.6,0.6-1c0.2-0.4,0.1-0.7-0.1-1c-0.3-0.6-1.3-3.2-1.8-4.4c-0.5-1.2-0.9-1-1.3-1c-0.3,0-0.7,0-1.1,0c-0.4,0-1,0.1-1.5,0.7c-0.5,0.6-2,1.9-2,4.6c0,2.7,2,5.3,2.3,5.7c0.3,0.4,3.9,6,9.4,8.4c1.3,0.6,2.3,0.9,3.1,1.2c1.3,0.4,2.5,0.3,3.4,0.2c1-0.1,3.5-1.4,4-2.8c0.5-1.4,0.5-2.6,0.4-2.8C37.5,31.2,37.2,31,36.6,30.9z"
-              ></path>
+            ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" width="24" height="24" class="fill-current">
+              <path d="M172.268 501.67C40.743 301.276 0 272.69 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 80.69-40.743 109.276-172.268 309.67-9.5 15.2-31.964 15.2-41.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"/>
             </svg></a
           >
         </li>
@@ -115,7 +129,7 @@ import Instagram from "./Instagram.astro";
       // Realiza el scroll suave hacia el destino
       $("html, body").animate(
         {
-          scrollTop: $($.attr(this, "href")).offset().top,
+          scrollTop: $($.attr(this, "href")).offset().top - 110 ,
         },
         1000 // Duración en milisegundos
       );

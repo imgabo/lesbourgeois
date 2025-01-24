@@ -17,14 +17,14 @@ const reviews = [
 ];
 ---
 
-<section class="bg-gray-100 overflow-x-hidden p-6 font-jakarta h-auto min-h-[600px] flex flex-col items-center">
+<section class="w-full bg-gray-100 overflow-x-hidden p-6 font-jakarta h-auto min-h-[600px] flex flex-col items-center">
   <h2 class="text-4xl  font-jakarta p-3 tracking-[4.4px] mb-1 text-center">Reseñas de Nuestros Servicios</h2>
   <div class="w-[75%] h-[1px] bg-black mb-5"></div>
   <div class="swiper-container w-full">
     <div class="swiper-wrapper">
       {reviews.map(review => (
         <div class="swiper-slide" >
-          <div class="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center justify-between min-h-[700px] md:min-h-[450px] h-auto">
+          <div class="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center justify-between min-h-[700px] md:min-h-[820px] h-auto">
             <img src={review.photo} alt={review.author} class="w-16 h-16 rounded-full mx-auto mb-4" />
             <h3 class="text-xl font-bold text-center">{review.author}</h3>
             <p class="text-justify text-gray-600 mb-4">{review.text}</p>
@@ -61,11 +61,8 @@ const reviews = [
     },
     spaceBetween: 30,
     breakpoints: {
-      500:{
-        slidesPerView: 1,
-        spaceBetween: 20,
-      },
-      640: {
+  
+      300: {
         slidesPerView: 1,
         spaceBetween: 20,
       },

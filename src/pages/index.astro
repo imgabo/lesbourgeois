@@ -1,5 +1,4 @@
 ---
-import Frase from "../components/Frase.astro";
 import HeroBanner from "../components/HeroBanner.astro";
 import Servicios from "../components/Servicios.astro";
 import Ubicacion from "../components/Ubicacion.astro";
@@ -16,14 +15,13 @@ import Reputacion from "../components/Reputacion.astro";
 
 <Layout>
   <HeroBanner />
-  <div class="h-auto min-h-[1160px] pt-[120px] bg-primary flex flex-col items-center justify-around" id="nosotros-section">
+  <div class="h-auto min-h-[1160px]  bg-primary flex flex-col items-center justify-around" id="nosotros-section">
     <QuienesSomos />
     <MisionVision />
   </div>
 
   <Servicios />
-  <Ubicacion />
-  <Frase />
+  <!-- <Ubicacion /> -->
   <Imagenes />
   <Contacto />
   <Reputacion />
