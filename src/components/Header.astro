@@ -63,11 +63,11 @@ import Instagram from "./Instagram.astro";
           <a href="#imagenes-section"> GALERÍA </a>
         </li>
         <li
-        class="border-b-2 border-b-transparent hover:border-b-primary transition-all duration-300"
-      >
-        <a href="#contacto-section"> CONTACTO </a>
-      </li>
- 
+          class="border-b-2 border-b-transparent hover:border-b-primary transition-all duration-300"
+        >
+          <a href="#contacto-section"> CONTACTO </a>
+        </li>
+
         <li class="w-auto h-auto text-white hidden lg:block">
           <a
             href="https://api.whatsapp.com/send?phone=+56932365287&text=Quiero%20informaci%C3%B3n%20de%20su%20centro%20de%20eventos"
@@ -107,11 +107,17 @@ import Instagram from "./Instagram.astro";
           >
         </li>
         <li class="w-auto h-auto text-white hidden lg:block">
-          <a
-            href="https://maps.app.goo.gl/j5hCkHjNRDWpqyzi8"
-            target="_blank"
-            ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" width="24" height="24" class="fill-current">
-              <path d="M172.268 501.67C40.743 301.276 0 272.69 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 80.69-40.743 109.276-172.268 309.67-9.5 15.2-31.964 15.2-41.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"/>
+          <a href="https://maps.app.goo.gl/j5hCkHjNRDWpqyzi8" target="_blank"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 384 512"
+              width="24"
+              height="24"
+              class="fill-current"
+            >
+              <path
+                d="M172.268 501.67C40.743 301.276 0 272.69 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 80.69-40.743 109.276-172.268 309.67-9.5 15.2-31.964 15.2-41.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"
+              ></path>
             </svg></a
           >
         </li>
@@ -126,13 +132,34 @@ import Instagram from "./Instagram.astro";
     $(document).on("click", 'a[href^="#"]', function (event) {
       event.preventDefault();
 
+      const target = $($.attr(this, "href"));
+      let offset = target.offset().top;
+
+      // Verifica si el href es "#contacto" y ajusta el offset
+      if ($.attr(this, "href") === "#imagenes-section") {
+        offset -= -100; // Ajusta este valor según sea necesario
+      } 
+      else if ($.attr(this, "href") === "#services-section")  {
+        offset -= -20; // Ajusta este valor según sea necesario
+      } else {
+        offset -= 110; // Offset por defecto
+      }
+
       // Realiza el scroll suave hacia el destino
       $("html, body").animate(
         {
-          scrollTop: $($.attr(this, "href")).offset().top - 110 ,
+          scrollTop: offset,
         },
         1000 // Duración en milisegundos
       );
+
+      // Ocultar el menú de celular
+      const menu = document.getElementById("menu");
+      if (menu) {
+        menu.classList.remove("translate-x-0");
+        menu.classList.add("translate-x-full");
+        menu.classList.add("hidden");
+      }
     });
 
     const menuButton = document.getElementById("menu-button");
